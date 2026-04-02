@@ -6,29 +6,29 @@
   <title>IELTS Listening Test</title>
   <style>
     :root {
-      --bg-main: #f8faf7;
-      --bg-soft: #eef4ee;
-      --bg-card: rgba(255, 255, 255, 0.92);
+      --bg-main: #eef5ff;
+      --bg-soft: #dfeafb;
+      --bg-card: rgba(255, 255, 255, 0.94);
       --bg-card-strong: #ffffff;
-      --text-main: #1f2937;
-      --text-soft: #64748b;
-      --text-muted: #94a3b8;
-      --line: #dbe4dc;
-      --accent: #0f766e;
-      --accent-2: #14b8a6;
-      --accent-soft: rgba(20, 184, 166, 0.12);
-      --danger: #ef4444;
-      --success: #10b981;
-      --warning: #f59e0b;
+      --text-main: #16324f;
+      --text-soft: #5e7795;
+      --text-muted: #8aa0bb;
+      --line: #cfddef;
+      --accent: #2563eb;
+      --accent-2: #60a5fa;
+      --accent-soft: rgba(37, 99, 235, 0.1);
+      --danger: #dc2626;
+      --success: #059669;
+      --warning: #ea580c;
     }
 
     * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
 
     body {
       background:
-        radial-gradient(circle at top left, rgba(20, 184, 166, 0.12), transparent 24%),
-        radial-gradient(circle at top right, rgba(245, 158, 11, 0.10), transparent 20%),
-        linear-gradient(180deg, #fdfefd 0%, #f3f7f3 52%, #edf4ee 100%);
+        radial-gradient(circle at top left, rgba(96, 165, 250, 0.16), transparent 24%),
+        radial-gradient(circle at top right, rgba(191, 219, 254, 0.22), transparent 26%),
+        linear-gradient(180deg, #f8fbff 0%, #edf4ff 50%, #e7f0fb 100%);
       min-height: 100vh;
       margin: 0;
       color: var(--text-main);
@@ -111,12 +111,12 @@
     .tracking-wide { letter-spacing: 0.025em; }
     .text-white { color: var(--text-main); }
     .text-transparent { color: transparent; }
-    .text-slate-300 { color: #475569; }
+    .text-slate-300 { color: #36506e; }
     .text-slate-400 { color: var(--text-soft); }
     .text-slate-600 { color: var(--text-muted); }
     .text-sky-300 { color: var(--accent); }
     .text-sky-400 { color: var(--accent-2); }
-    .bg-slate-800 { background-color: #f3f7f4; }
+    .bg-slate-800 { background-color: #f4f8ff; }
     .bg-opacity-50 { --bg-opacity: 0.5; }
     .bg-opacity-60 { --bg-opacity: 0.6; }
     .bg-slate-800.bg-opacity-50 { background-color: rgba(243, 247, 244, 0.82); }
@@ -124,7 +124,7 @@
     .bg-clip-text { -webkit-background-clip: text; background-clip: text; }
     .bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-from), var(--tw-gradient-to)); }
     .from-sky-400 { --tw-gradient-from: var(--accent); }
-    .to-violet-400 { --tw-gradient-to: #f59e0b; }
+    .to-violet-400 { --tw-gradient-to: #93c5fd; }
     .accent-sky-400 { accent-color: var(--accent); }
 
     /* ---- STICKY AUDIO PLAYER ---- */
@@ -132,14 +132,14 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(255,255,255,0.94);
+      background: rgba(255,255,255,0.96);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(15,118,110,0.18);
-      box-shadow: 0 10px 32px rgba(15, 23, 42, 0.08);
+      border-bottom: 1px solid rgba(37,99,235,0.12);
+      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.08);
     }
 
     #progress-track {
-      background: #dce8df;
+      background: #dbe9fb;
       border-radius: 99px;
       height: 6px;
       cursor: pointer;
@@ -161,10 +161,10 @@
       transition: all 0.2s;
       border: none;
       outline: none;
-      background: #f1f5f2;
+      background: #eef4ff;
       color: var(--text-soft);
     }
-    .ctrl-btn:hover { background: var(--accent); color: #ffffff; transform: scale(1.1); }
+    .ctrl-btn:hover { background: var(--accent); color: #ffffff; transform: scale(1.05); }
     .ctrl-btn:active { transform: scale(0.95); }
 
     #play-btn {
@@ -172,7 +172,7 @@
       color: #ffffff;
       width: 52px; height: 52px;
     }
-    #play-btn:hover { transform: scale(1.12); box-shadow: 0 0 20px rgba(20,184,166,0.28); }
+    #play-btn:hover { transform: scale(1.08); box-shadow: 0 0 18px rgba(37,99,235,0.22); }
 
     .skip-btn { width: 40px; height: 40px; }
 
@@ -196,11 +196,11 @@
 
     .part-card {
       background: var(--bg-card);
-      border: 1px solid rgba(219,228,220,0.95);
+      border: 1px solid rgba(207,221,239,0.95);
       border-radius: 18px;
       padding: 28px;
       backdrop-filter: blur(8px);
-      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 18px 42px rgba(37, 99, 235, 0.08);
     }
     .part-title {
       font-size: 1.15rem;
@@ -218,27 +218,11 @@
       font-size: 0.78rem;
     }
     /* Per-question score badge */
-    .q-score-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      font-weight: 800;
-      border-radius: 999px;
-      padding: 1px 8px;
-      margin-left: 6px;
-      vertical-align: middle;
-      background: rgba(15,118,110,0.08);
-      color: var(--accent);
-      border: 1px solid rgba(15,118,110,0.15);
-      white-space: nowrap;
-    }
-    .q-score-badge.correct { background: rgba(52,211,153,0.15); color: #34d399; border-color: rgba(52,211,153,0.3); }
-    .q-score-badge.wrong { background: rgba(248,113,113,0.15); color: #f87171; border-color: rgba(248,113,113,0.3); }
+    .q-score-badge { display: none !important; }
 
     .answer-input {
-      background: #fcfffd;
-      border: 1.5px solid #cfdacf;
+      background: #ffffff;
+      border: 1.5px solid #c9d8ee;
       border-radius: 8px;
       color: var(--text-main);
       padding: 4px 10px;
@@ -247,7 +231,7 @@
       outline: none;
       transition: border 0.2s;
     }
-    .answer-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(15,118,110,0.12); }
+    .answer-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.12); }
 
     .q-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
 
@@ -258,15 +242,15 @@
       transition: all 0.2s;
       user-select: text; -webkit-user-select: text;
     }
-    .opt-label:hover { background: rgba(15,118,110,0.06); color: var(--text-main); }
+    .opt-label:hover { background: rgba(37,99,235,0.06); color: var(--text-main); }
     .opt-label input { accent-color: var(--accent); cursor: pointer; user-select: none; -webkit-user-select: none; }
-    .q-text { color: #334155; font-size: 0.93rem; line-height: 1.6; user-select: text; -webkit-user-select: text; }
-    .q-label { color: #0f766e; font-weight: 800; font-size: 0.82rem; min-width: 28px; user-select: text; -webkit-user-select: text; }
+    .q-text { color: #274465; font-size: 0.93rem; line-height: 1.6; user-select: text; -webkit-user-select: text; }
+    .q-label { color: #2563eb; font-weight: 800; font-size: 0.82rem; min-width: 28px; user-select: text; -webkit-user-select: text; }
     .part-card { user-select: text; -webkit-user-select: text; }
 
     .match-select {
-      background: #fcfffd;
-      border: 1.5px solid #cfdacf;
+      background: #ffffff;
+      border: 1.5px solid #c9d8ee;
       border-radius: 8px;
       color: var(--text-main);
       padding: 4px 8px;
@@ -287,17 +271,17 @@
       border: none;
       cursor: pointer;
       transition: all 0.2s;
-      box-shadow: 0 10px 24px rgba(15,118,110,0.18);
+      box-shadow: 0 10px 24px rgba(37,99,235,0.18);
     }
-    #check-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(15,118,110,0.22); }
+    #check-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(37,99,235,0.22); }
 
     .correct-ans { color: #34d399 !important; font-weight: 700; font-size: 0.82rem; margin-left: 4px; }
     .wrong-ans { border-color: #f87171 !important; }
     .right-ans { border-color: #34d399 !important; }
 
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #edf4ee; }
-    ::-webkit-scrollbar-thumb { background: #b7c7ba; border-radius: 3px; }
+    ::-webkit-scrollbar-track { background: #eaf2ff; }
+    ::-webkit-scrollbar-thumb { background: #b5cae8; border-radius: 3px; }
 
     .section-divider {
       height: 2px;
@@ -314,31 +298,32 @@
       align-items: center;
       gap: 6px;
       background: rgba(255, 255, 255, 0.98);
-      border: 1px solid rgba(15,118,110,0.16);
+      border: 1px solid rgba(37,99,235,0.16);
       border-radius: 999px;
-      padding: 5px 8px 5px 12px;
-      box-shadow: 0 12px 32px rgba(15,23,42,0.14);
+      padding: 8px 10px 8px 14px;
+      box-shadow: 0 12px 28px rgba(37,99,235,0.14);
       pointer-events: auto;
       user-select: none;
     }
-    #hl-toolbar span { color: var(--text-soft); font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
-    #hl-btn {
-      background: linear-gradient(135deg, #fbbf24, #f59e0b);
-      color: #111;
+    #hl-toolbar span { color: var(--text-soft); font-size: 0.78rem; font-weight: 700; white-space: nowrap; }
+    .hl-color-btn {
       border: none;
       border-radius: 999px;
-      padding: 4px 14px;
+      padding: 5px 12px;
       font-weight: 800;
       font-size: 0.78rem;
       cursor: pointer;
       transition: all 0.15s;
       white-space: nowrap;
     }
-    #hl-btn:hover { transform: scale(1.06); }
+    .hl-color-btn:hover { transform: translateY(-1px); }
+    .hl-yellow { background: linear-gradient(135deg, #fde68a, #facc15); color: #3b2f06; }
+    .hl-gray { background: linear-gradient(135deg, #e5e7eb, #cbd5e1); color: #334155; }
+    .hl-orange { background: linear-gradient(135deg, #fdba74, #f97316); color: #4a2107; }
     #remove-hl-btn {
-      background: rgba(248,113,113,0.15);
-      color: #f87171;
-      border: 1px solid rgba(248,113,113,0.3);
+      background: rgba(220,38,38,0.1);
+      color: #dc2626;
+      border: 1px solid rgba(220,38,38,0.2);
       border-radius: 999px;
       padding: 4px 10px;
       font-weight: 700;
@@ -347,19 +332,22 @@
       transition: all 0.15s;
       white-space: nowrap;
     }
-    #remove-hl-btn:hover { background: rgba(248,113,113,0.3); }
+    #remove-hl-btn:hover { background: rgba(220,38,38,0.16); }
+    #remove-hl-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
     mark.kh {
-      background: linear-gradient(135deg, rgba(251,191,36,0.9), rgba(253,224,71,0.85));
       color: #111827;
       padding: 0px 3px;
       border-radius: 3px;
-      border-bottom: 2px solid rgba(161,98,7,0.5);
+      border-bottom: 2px solid rgba(148, 163, 184, 0.42);
       cursor: pointer;
     }
-    mark.kh:hover { background: rgba(251,191,36,1); }
+    mark.kh-yellow { background: linear-gradient(135deg, rgba(254, 240, 138, 0.95), rgba(250, 204, 21, 0.82)); }
+    mark.kh-gray { background: linear-gradient(135deg, rgba(229, 231, 235, 0.98), rgba(203, 213, 225, 0.92)); }
+    mark.kh-orange { background: linear-gradient(135deg, rgba(254, 215, 170, 0.98), rgba(249, 115, 22, 0.42)); }
+    mark.kh:hover { filter: brightness(0.98); }
 
-    .main-content { padding-top: 140px; }
+    .main-content { padding-top: 132px; }
 
     /* ===== RESULT MODAL ===== */
     #result-modal-overlay {
@@ -375,14 +363,14 @@
     #result-modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
 
     #result-modal {
-      background: linear-gradient(180deg, #ffffff, #f8fbf8);
-      border: 1px solid rgba(219,228,220,0.95);
+      background: linear-gradient(180deg, #ffffff, #f5f9ff);
+      border: 1px solid rgba(207,221,239,0.95);
       border-radius: 24px;
       padding: 36px 32px 32px;
       max-width: 680px;
       width: 100%;
       position: relative;
-      box-shadow: 0 30px 80px rgba(15,23,42,0.14);
+      box-shadow: 0 30px 80px rgba(37,99,235,0.12);
       animation: modalIn 0.35s cubic-bezier(0.34,1.56,0.64,1);
     }
     @keyframes modalIn {
@@ -393,8 +381,8 @@
     #modal-close-btn {
       position: absolute;
       top: 16px; right: 18px;
-      background: #f3f7f4;
-      border: 1px solid rgba(219,228,220,0.95);
+      background: #f1f6ff;
+      border: 1px solid rgba(207,221,239,0.95);
       border-radius: 50%;
       width: 36px; height: 36px;
       display: flex; align-items: center; justify-content: center;
@@ -403,7 +391,7 @@
       font-size: 1.1rem;
       transition: all 0.2s;
     }
-    #modal-close-btn:hover { background: rgba(248,113,113,0.2); color: #f87171; }
+    #modal-close-btn:hover { background: rgba(220,38,38,0.16); color: #dc2626; }
 
     .modal-header { text-align: center; margin-bottom: 28px; }
     .modal-title { font-size: 1.4rem; font-weight: 900; color: var(--text-main); margin-bottom: 4px; }
@@ -420,7 +408,7 @@
       font-size: 5rem;
       font-weight: 900;
       line-height: 1;
-      background: linear-gradient(135deg, var(--accent), #0f766e);
+      background: linear-gradient(135deg, var(--accent), #1d4ed8);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -434,8 +422,8 @@
       margin-bottom: 24px;
     }
     .stat-box {
-      background: #f8fbf8;
-      border: 1px solid rgba(219,228,220,0.95);
+      background: #f6faff;
+      border: 1px solid rgba(207,221,239,0.95);
       border-radius: 14px;
       padding: 14px 10px;
       text-align: center;
@@ -463,7 +451,7 @@
     .part-row-bar-wrap {
       flex: 1;
       height: 10px;
-      background: #e6eee7;
+      background: #e1ecfb;
       border-radius: 99px;
       overflow: hidden;
     }
@@ -487,20 +475,20 @@
       color: var(--text-soft);
       text-align: left;
       padding: 6px 10px;
-      border-bottom: 1px solid #e5ece6;
+      border-bottom: 1px solid #dbe7f7;
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
     .wrong-table td {
       font-size: 0.82rem;
       padding: 7px 10px;
-      border-bottom: 1px solid #eef3ef;
+      border-bottom: 1px solid #edf3fb;
       vertical-align: middle;
     }
     .wrong-table tr:last-child td { border-bottom: none; }
-    .wrong-table .td-qno { color: #818cf8; font-weight: 800; }
-    .wrong-table .td-your { color: #f87171; }
-    .wrong-table .td-correct { color: #34d399; font-weight: 700; }
+    .wrong-table .td-qno { color: #2563eb; font-weight: 800; }
+    .wrong-table .td-your { color: #dc2626; }
+    .wrong-table .td-correct { color: #059669; font-weight: 700; }
     .wrong-table .td-empty { color: #475569; font-style: italic; }
 
     .all-correct-msg {
@@ -509,9 +497,9 @@
       color: #34d399;
       font-weight: 700;
       font-size: 0.95rem;
-      background: rgba(52,211,153,0.08);
+      background: rgba(5,150,105,0.08);
       border-radius: 12px;
-      border: 1px solid rgba(52,211,153,0.2);
+      border: 1px solid rgba(5,150,105,0.18);
     }
 
     #quick-result {
@@ -574,9 +562,11 @@
 
   <!-- ===== HIGHLIGHT TOOLBAR ===== -->
   <div id="hl-toolbar">
-    <span>TexT Highlight</span>
-    <button id="hl-btn" type="button">Add Highlight</button>
-    <button id="remove-hl-btn" type="button" style="display:none;">Remove</button>
+    <span>Highlight</span>
+    <button class="hl-color-btn hl-yellow" type="button" data-color="yellow">Yellow</button>
+    <button class="hl-color-btn hl-gray" type="button" data-color="gray">Gray</button>
+    <button class="hl-color-btn hl-orange" type="button" data-color="orange">Orange</button>
+    <button id="remove-hl-btn" type="button" disabled>Remove</button>
   </div>
 
   <!-- ===== FIXED AUDIO PLAYER ===== -->
@@ -587,12 +577,7 @@
           <svg class="w-4 h-4 text-sky-400" fill="currentColor" viewBox="0 0 20 20">
             <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/>
           </svg>
-          <span class="text-sky-300 font-bold text-sm tracking-wide">IELTS Listening Test - Audio</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span id="current-time" class="text-slate-400 font-mono text-sm">0:00</span>
-          <span class="text-slate-600 text-sm">/</span>
-          <span id="total-time" class="text-slate-400 font-mono text-sm">0:00</span>
+          <span class="text-sky-300 font-bold text-sm tracking-wide">IELTS Listening Practice Audio</span>
         </div>
       </div>
 
@@ -629,11 +614,11 @@
             <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd"/>
           </svg>
           <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="1"
-            style="width:5rem;height:0.25rem;border-radius:999px;cursor:pointer;accent-color:#38bdf8;"
+            style="width:5rem;height:0.25rem;border-radius:999px;cursor:pointer;accent-color:#2563eb;"
             oninput="setVolume(this.value)" />
         </div>
         <select id="speed-select" onchange="setSpeed(this.value)"
-          style="margin-left:0.5rem;background:#1e293b;color:#cbd5e1;font-size:0.75rem;font-weight:700;border:1px solid #475569;border-radius:8px;padding:4px 8px;cursor:pointer;outline:none;">
+          style="margin-left:0.5rem;background:#f8fbff;color:#274465;font-size:0.75rem;font-weight:700;border:1px solid #c9d8ee;border-radius:8px;padding:4px 8px;cursor:pointer;outline:none;">
           <option value="0.75">0.75x</option>
           <option value="1" selected>1x</option>
           <option value="1.25">1.25x</option>
@@ -717,9 +702,9 @@
       <h1 class="text-4xl font-black text-white mb-2 tracking-tight">
         IELTS <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-violet-400">Listening</span> Test
       </h1>
-      <p class="text-slate-400 font-semibold">4 Parts - 40 Questions</p>
-      <p class="text-slate-400 text-sm mt-3">Scoring: each question = 1 point, total = 40 points, IELTS band is calculated from the raw score.</p>
-      <p class="text-slate-600 text-xs mt-2">Tip: Select any word <strong class="text-amber-400">with your mouse</strong> to show the highlight button</p>
+      <p class="text-slate-400 font-semibold">4 Parts - 40 Questions - Calm IELTS Practice Mode</p>
+      <p class="text-slate-400 text-sm mt-3">Natija faqat to'g'ri javoblar soni bo'yicha hisoblanadi. Qo'shimcha bonus yo'q.</p>
+      <p class="text-slate-600 text-xs mt-2">Matnni belgilang va yuqoridagi paneldan sariq, kulrang yoki olovrang highlight qo'llang.</p>
     </div>
 
     <div class="flex gap-2 justify-center mb-8 flex-wrap">
@@ -1120,30 +1105,11 @@
       }
       return 0;
     }
-    const sessionStartedAt = Date.now();
-
-    function getActivityBonus(answeredCount) {
-      const minutesSpent = (Date.now() - sessionStartedAt) / 60000;
-      const listenedMinutes = (audio && !isNaN(audio.currentTime)) ? (audio.currentTime / 60) : 0;
-
-      let bonus = 0.5; // page opened
-      if (answeredCount >= 5) bonus += 0.5;
-      if (answeredCount >= 12) bonus += 0.5;
-      if (minutesSpent >= 2) bonus += 0.5;
-      if (minutesSpent >= 5) bonus += 0.5;
-      if (listenedMinutes >= 1) bonus += 0.5;
-
-      return Math.min(2.5, bonus);
-    }
-
-    function getDisplayBand(rawScore, answeredCount) {
+    function getDisplayBand(rawScore) {
       const rawBand = rawToBand(rawScore);
-      const activityBonus = getActivityBonus(answeredCount);
-      const displayBand = Math.min(9, Math.max(rawBand, rawBand + activityBonus));
       return {
         rawBand,
-        activityBonus,
-        displayBand: Math.round(displayBand * 10) / 10
+        displayBand: Math.round(rawBand * 10) / 10
       };
     }
 
@@ -1197,13 +1163,9 @@
 
     // ===== AUDIO =====
     const audio = document.getElementById('audio');
-    audio.addEventListener('loadedmetadata', () => {
-      document.getElementById('total-time').textContent = formatTime(audio.duration);
-    });
     audio.addEventListener('timeupdate', () => {
       const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
       document.getElementById('progress-fill').style.width = pct + '%';
-      document.getElementById('current-time').textContent = formatTime(audio.currentTime);
     });
     audio.addEventListener('ended', () => {
       document.getElementById('play-icon').classList.remove('hidden');
@@ -1227,19 +1189,13 @@
     }
     function setVolume(val) { audio.volume = val; }
     function setSpeed(val) { audio.playbackRate = parseFloat(val); }
-    function formatTime(s) {
-      if (isNaN(s)) return '0:00';
-      const m = Math.floor(s / 60), sec = Math.floor(s % 60);
-      return m + ':' + (sec < 10 ? '0' : '') + sec;
-    }
-
     // ===== TABS =====
     function showPart(n, btn) {
       document.querySelectorAll('.part-section').forEach(el => el.classList.add('hidden'));
       document.getElementById('part-' + n).classList.remove('hidden');
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      hideToolbar();
+      clearHighlightState();
     }
 
     // ===== MODAL =====
@@ -1252,12 +1208,11 @@
 
     // ===== HIGHLIGHT =====
     const toolbar = document.getElementById('hl-toolbar');
-    const hlBtn = document.getElementById('hl-btn');
+    const colorButtons = document.querySelectorAll('.hl-color-btn');
     const removeBtn = document.getElementById('remove-hl-btn');
     const mainContent = document.getElementById('main-content');
     let pendingHighlight = null;
     let clickedMark = null;
-    let lastMouseX = 0, lastMouseY = 0;
 
     // Make ALL text inside part-card selectable (including inside labels)
     document.querySelectorAll('.part-card, .opt-label, .q-text, .q-label, .part-title').forEach(el => {
@@ -1265,28 +1220,28 @@
       el.style.webkitUserSelect = 'text';
     });
 
-    function hideToolbar() {
-      toolbar.style.display = 'none';
+    function clearHighlightState() {
       pendingHighlight = null;
       clickedMark = null;
-      removeBtn.style.display = 'none';
-      hlBtn.style.display = 'inline-block';
+      toolbar.style.display = 'none';
+      removeBtn.disabled = true;
     }
 
     function positionToolbar(x, y) {
       toolbar.style.left = '-9999px';
       toolbar.style.top = '-9999px';
       toolbar.style.display = 'flex';
+
       requestAnimationFrame(() => {
-        const tw = toolbar.offsetWidth, th = toolbar.offsetHeight;
-        const viewportLeft = 8;
-        const viewportRight = window.innerWidth - tw - 8;
-        const minTop = 8;
-        let left = Math.max(viewportLeft, Math.min(viewportRight, x - tw / 2));
+        const tw = toolbar.offsetWidth;
+        const th = toolbar.offsetHeight;
+        const minLeft = 8;
+        const maxLeft = window.innerWidth - tw - 8;
+        let left = Math.max(minLeft, Math.min(maxLeft, x - (tw / 2)));
         let top = y - th - 14;
 
-        if (top < minTop) {
-          top = minTop;
+        if (top < 8) {
+          top = y + 16;
         }
 
         toolbar.style.left = left + 'px';
@@ -1296,120 +1251,92 @@
 
     function positionToolbarForRange(range) {
       if (!range) {
-        hideToolbar();
+        clearHighlightState();
         return;
       }
 
       try {
         const rect = range.getBoundingClientRect();
         if (!rect || (!rect.width && !rect.height)) {
-          hideToolbar();
+          clearHighlightState();
           return;
         }
 
-        const x = rect.left + (rect.width / 2);
-        const y = rect.top;
-        positionToolbar(x, y);
-      } catch (e) {
-        hideToolbar();
+        positionToolbar(rect.left + (rect.width / 2), rect.top);
+      } catch (error) {
+        clearHighlightState();
       }
     }
 
     function positionToolbarForMark(mark) {
       if (!mark || !document.body.contains(mark)) {
-        hideToolbar();
+        clearHighlightState();
         return;
       }
 
       const rect = mark.getBoundingClientRect();
       if (!rect || (!rect.width && !rect.height)) {
-        hideToolbar();
+        clearHighlightState();
         return;
       }
 
-      const x = rect.left + (rect.width / 2);
-      const y = rect.top;
-      positionToolbar(x, y);
+      positionToolbar(rect.left + (rect.width / 2), rect.top);
     }
 
-    // Track mouse position for fallback toolbar placement
-    document.addEventListener('mousemove', e => { lastMouseX = e.clientX; lastMouseY = e.clientY + window.scrollY; });
-
     // ---- Core: detect selection after mouseup ----
-    function handleSelectionCheck(mouseX, mouseY) {
+    function handleSelectionCheck() {
       const sel = window.getSelection();
       if (!sel || sel.isCollapsed || !sel.rangeCount) {
-        hideToolbar();
+        clearHighlightState();
         return;
       }
 
       const range = sel.getRangeAt(0);
       const selectedText = sel.toString().trim();
-      if (!selectedText) { hideToolbar(); return; }
+      if (!selectedText) { clearHighlightState(); return; }
 
       // Check that selection is within main-content
       const ancestor = range.commonAncestorContainer;
       const ancestorEl = ancestor.nodeType === Node.TEXT_NODE ? ancestor.parentElement : ancestor;
-      if (!mainContent.contains(ancestorEl)) { hideToolbar(); return; }
+      if (!mainContent.contains(ancestorEl)) { clearHighlightState(); return; }
 
       // Don't allow selecting inside input/select/textarea
-      if (ancestorEl.closest('input, select, textarea')) { hideToolbar(); return; }
+      if (ancestorEl.closest('input, select, textarea')) { clearHighlightState(); return; }
 
       // Save the range for later use
       pendingHighlight = { range: range.cloneRange() };
       clickedMark = null;
-      removeBtn.style.display = 'none';
-      hlBtn.style.display = 'inline-block';
-
+      removeBtn.disabled = true;
       positionToolbarForRange(pendingHighlight.range);
     }
 
     document.addEventListener('mouseup', function(e) {
-      // Ignore clicks inside toolbar
       if (toolbar.contains(e.target)) return;
 
-      // Click on existing mark -> show remove toolbar
       const mark = e.target.closest('mark.kh');
       if (mark) {
         clickedMark = mark;
         pendingHighlight = null;
         window.getSelection().removeAllRanges();
-        removeBtn.style.display = 'inline-block';
-        hlBtn.style.display = 'none';
+        removeBtn.disabled = false;
+        toolbar.style.display = 'flex';
         positionToolbarForMark(mark);
         return;
       }
 
-      // If outside main content completely, hide
       if (!mainContent.contains(e.target) && !e.target.closest('.opt-label, .q-text, .part-card')) {
-        // Give a tiny delay then check if there's still a selection
         setTimeout(() => {
           const sel = window.getSelection();
-          if (!sel || sel.isCollapsed) hideToolbar();
+          if (!sel || sel.isCollapsed) clearHighlightState();
         }, 50);
         return;
       }
 
-      // Delay slightly so browser finishes updating selection
-      setTimeout(() => handleSelectionCheck(e.clientX + window.scrollX, e.clientY + window.scrollY), 15);
+      setTimeout(() => handleSelectionCheck(), 15);
     });
 
-    // Also handle selectionchange for cases where selection changes without mouseup
-    document.addEventListener('selectionchange', function() {
-      const sel = window.getSelection();
-      if (sel && sel.isCollapsed && toolbar.style.display !== 'none' && !clickedMark) {
-        // Selection collapsed — hide toolbar (but only if not on a mark)
-        setTimeout(() => {
-          const sel2 = window.getSelection();
-          if (sel2 && sel2.isCollapsed && !clickedMark) hideToolbar();
-        }, 80);
-      }
-    });
-
-    // ---- Highlight button ----
-    hlBtn.addEventListener('mousedown', e => e.preventDefault()); // prevent selection loss
-    hlBtn.addEventListener('click', () => {
-      if (!pendingHighlight || !pendingHighlight.range) { hideToolbar(); return; }
+    function applyHighlight(colorName) {
+      if (!pendingHighlight || !pendingHighlight.range) { clearHighlightState(); return; }
 
       const savedRange = pendingHighlight.range;
 
@@ -1420,7 +1347,7 @@
 
       // Try surroundContents first (works for single-element selections)
       const mark = document.createElement('mark');
-      mark.className = 'kh';
+      mark.className = `kh kh-${colorName}`;
 
       try {
         // Check if range spans multiple block elements (surroundContents would fail)
@@ -1458,23 +1385,27 @@
       }
 
       sel.removeAllRanges();
-      hideToolbar();
+      clearHighlightState();
+    }
+
+    colorButtons.forEach(btn => {
+      btn.addEventListener('mousedown', e => e.preventDefault());
+      btn.addEventListener('click', () => applyHighlight(btn.dataset.color));
     });
 
     // ---- Remove highlight button ----
     removeBtn.addEventListener('mousedown', e => e.preventDefault());
     removeBtn.addEventListener('click', () => {
-      if (!clickedMark) { hideToolbar(); return; }
+      if (!clickedMark) return;
       const parent = clickedMark.parentNode;
       if (parent) {
         while (clickedMark.firstChild) parent.insertBefore(clickedMark.firstChild, clickedMark);
         parent.removeChild(clickedMark);
         parent.normalize();
       }
-      hideToolbar();
+      clearHighlightState();
     });
 
-    // Keep toolbar attached to the selected text / highlight while scrolling
     window.addEventListener('scroll', () => {
       if (toolbar.style.display === 'none') return;
 
@@ -1487,11 +1418,6 @@
         positionToolbarForRange(pendingHighlight.range);
       }
     }, { passive: true });
-
-    // Hide on Escape
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') hideToolbar();
-    });
 
     // ===== CHECK ANSWERS =====
     function checkAnswers() {
@@ -1597,11 +1523,10 @@
       wrongList.sort((a, b) => a.qno - b.qno);
 
       const skipped = wrongList.filter(w => w.your === '').length;
-      const answeredCount = 40 - skipped;
-      const bandInfo = getDisplayBand(totalCorrect, answeredCount);
+      const bandInfo = getDisplayBand(totalCorrect);
       const percentage = Math.round((totalCorrect / 40) * 100);
       document.getElementById('modal-band').textContent = bandInfo.displayBand.toFixed(1);
-      document.getElementById('modal-band-desc').textContent = 'Raw score: ' + totalCorrect + '/40 | Percentage: ' + percentage + '% | Base band: ' + bandInfo.rawBand.toFixed(1) + ' | Activity bonus: +' + bandInfo.activityBonus.toFixed(1) + ' | Final shown band: ' + bandInfo.displayBand.toFixed(1) + ' | ' + bandDesc(bandInfo.displayBand);
+      document.getElementById('modal-band-desc').textContent = 'Raw score: ' + totalCorrect + '/40 | Percentage: ' + percentage + '% | IELTS band: ' + bandInfo.displayBand.toFixed(1) + ' | ' + bandDesc(bandInfo.displayBand);
 
       const wrong = wrongList.filter(w => w.your !== '').length;
 
@@ -1611,7 +1536,7 @@
 
       const quickResult = document.getElementById('quick-result');
       quickResult.style.display = 'block';
-      quickResult.textContent = 'Jami ball: ' + totalCorrect + '/40. Ko‘rsatiladigan band: ' + bandInfo.displayBand.toFixed(1) + ' (bazaviy: ' + bandInfo.rawBand.toFixed(1) + ', bonus: +' + bandInfo.activityBonus.toFixed(1) + '). Foiz: ' + percentage + '%.';
+      quickResult.textContent = 'Jami ball: ' + totalCorrect + '/40. IELTS band: ' + bandInfo.displayBand.toFixed(1) + '. Foiz: ' + percentage + '%.';
 
       // Part bars
       [1, 2, 3, 4].forEach(p => {
@@ -1645,9 +1570,4 @@
 
 </body>
 </html>
-
-
-
-
-
 
