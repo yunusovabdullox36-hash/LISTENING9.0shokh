@@ -32,6 +32,7 @@
       min-height: 100vh;
       margin: 0;
       color: var(--text-main);
+      scroll-behavior: smooth;
     }
 
     button, input, select { font: inherit; }
@@ -290,64 +291,146 @@
       opacity: 0.3;
     }
 
-    /* ===== HIGHLIGHT TOOLBAR ===== */
-    #hl-toolbar {
-      position: fixed;
-      z-index: 9999;
-      display: none;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255, 255, 255, 0.98);
-      border: 1px solid rgba(37,99,235,0.16);
-      border-radius: 999px;
-      padding: 8px 10px 8px 14px;
-      box-shadow: 0 12px 28px rgba(37,99,235,0.14);
-      pointer-events: auto;
-      user-select: none;
-    }
-    #hl-toolbar span { color: var(--text-soft); font-size: 0.78rem; font-weight: 700; white-space: nowrap; }
-    .hl-color-btn {
-      border: none;
-      border-radius: 999px;
-      padding: 5px 12px;
-      font-weight: 800;
-      font-size: 0.78rem;
-      cursor: pointer;
-      transition: all 0.15s;
-      white-space: nowrap;
-    }
-    .hl-color-btn:hover { transform: translateY(-1px); }
-    .hl-yellow { background: linear-gradient(135deg, #fde68a, #facc15); color: #3b2f06; }
-    .hl-gray { background: linear-gradient(135deg, #e5e7eb, #cbd5e1); color: #334155; }
-    .hl-orange { background: linear-gradient(135deg, #fdba74, #f97316); color: #4a2107; }
-    #remove-hl-btn {
-      background: rgba(220,38,38,0.1);
-      color: #dc2626;
-      border: 1px solid rgba(220,38,38,0.2);
-      border-radius: 999px;
-      padding: 4px 10px;
-      font-weight: 700;
-      font-size: 0.75rem;
-      cursor: pointer;
-      transition: all 0.15s;
-      white-space: nowrap;
-    }
-    #remove-hl-btn:hover { background: rgba(220,38,38,0.16); }
-    #remove-hl-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
-    mark.kh {
-      color: #111827;
-      padding: 0px 3px;
-      border-radius: 3px;
-      border-bottom: 2px solid rgba(148, 163, 184, 0.42);
-      cursor: pointer;
-    }
-    mark.kh-yellow { background: linear-gradient(135deg, rgba(254, 240, 138, 0.95), rgba(250, 204, 21, 0.82)); }
-    mark.kh-gray { background: linear-gradient(135deg, rgba(229, 231, 235, 0.98), rgba(203, 213, 225, 0.92)); }
-    mark.kh-orange { background: linear-gradient(135deg, rgba(254, 215, 170, 0.98), rgba(249, 115, 22, 0.42)); }
-    mark.kh:hover { filter: brightness(0.98); }
-
     .main-content { padding-top: 132px; }
+    .hero-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+    .hero-card,
+    .overview-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(207,221,239,0.95);
+      border-radius: 24px;
+      box-shadow: 0 18px 42px rgba(37, 99, 235, 0.08);
+    }
+    .hero-card {
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -60px -80px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,0.28), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      margin: 18px 0 12px;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 0.95;
+      font-weight: 900;
+      color: var(--text-main);
+    }
+    .hero-copy {
+      max-width: 42rem;
+      color: var(--text-soft);
+      line-height: 1.75;
+      font-size: 1rem;
+      margin-bottom: 24px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .hero-pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #f4f8ff;
+      border: 1px solid #dbe7f7;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-soft);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .action-btn {
+      border: none;
+      border-radius: 14px;
+      padding: 13px 18px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .action-btn:hover { transform: translateY(-1px); }
+    .action-btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #ffffff;
+      box-shadow: 0 12px 24px rgba(37,99,235,0.18);
+    }
+    .action-btn.secondary {
+      background: #f4f8ff;
+      color: var(--text-main);
+      border: 1px solid #dbe7f7;
+    }
+    .overview-card {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .overview-title {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--text-soft);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .overview-item {
+      background: #f7fbff;
+      border: 1px solid #dbe7f7;
+      border-radius: 18px;
+      padding: 16px 14px;
+    }
+    .overview-value {
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .overview-label {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      font-weight: 700;
+      line-height: 1.5;
+    }
+    .overview-note {
+      padding: 16px 18px;
+      background: linear-gradient(135deg, rgba(37,99,235,0.08), rgba(96,165,250,0.12));
+      border-radius: 18px;
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
 
     /* ===== RESULT MODAL ===== */
     #result-modal-overlay {
@@ -527,6 +610,7 @@
       .part-card { padding: 24px 20px; }
       .answer-input { width: min(100%, 180px); }
       .q-row { gap: 8px; }
+      .hero-shell { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       body { overflow-x: hidden; }
@@ -536,6 +620,10 @@
       .text-5xl { font-size: 2.4rem; }
       #player-bar { padding-top: 12px; padding-bottom: 12px; }
       .main-content { padding-top: 220px; padding-left: 14px; padding-right: 14px; }
+      .hero-card, .overview-card { padding: 20px 18px; border-radius: 20px; }
+      .hero-actions { flex-direction: column; }
+      .action-btn { width: 100%; }
+      .overview-grid { grid-template-columns: 1fr 1fr; }
       .part-card { padding: 18px 14px; border-radius: 16px; }
       .part-title { flex-direction: column; align-items: flex-start; }
       .tab-btn { flex: 1 1 calc(50% - 0.5rem); min-width: 120px; text-align: center; padding: 10px 14px; }
@@ -559,15 +647,6 @@
   </style>
 </head>
 <body>
-
-  <!-- ===== HIGHLIGHT TOOLBAR ===== -->
-  <div id="hl-toolbar">
-    <span>Highlight</span>
-    <button class="hl-color-btn hl-yellow" type="button" data-color="yellow">Yellow</button>
-    <button class="hl-color-btn hl-gray" type="button" data-color="gray">Gray</button>
-    <button class="hl-color-btn hl-orange" type="button" data-color="orange">Orange</button>
-    <button id="remove-hl-btn" type="button" disabled>Remove</button>
-  </div>
 
   <!-- ===== FIXED AUDIO PLAYER ===== -->
   <div id="player-bar" class="px-4 py-3">
@@ -698,20 +777,59 @@
   <!-- ===== MAIN CONTENT ===== -->
   <div class="max-w-4xl mx-auto px-4 pb-16 main-content" id="main-content">
 
-    <div class="text-center mb-10">
-      <h1 class="text-4xl font-black text-white mb-2 tracking-tight">
-        IELTS <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-violet-400">Listening</span> Test
-      </h1>
-      <p class="text-slate-400 font-semibold">4 Parts - 40 Questions - Calm IELTS Practice Mode</p>
-      <p class="text-slate-400 text-sm mt-3">Natija faqat to'g'ri javoblar soni bo'yicha hisoblanadi. Qo'shimcha bonus yo'q.</p>
-      <p class="text-slate-600 text-xs mt-2">Matnni belgilang va yuqoridagi paneldan sariq, kulrang yoki olovrang highlight qo'llang.</p>
-    </div>
+    <section class="hero-shell" id="home">
+      <div class="hero-card">
+        <div class="hero-kicker">Listening Mock</div>
+        <h1 class="hero-title">
+          IELTS <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-violet-400">Listening</span><br />
+          Home Practice
+        </h1>
+        <p class="hero-copy">
+          A cleaner single-page practice experience with the audio, four parts, and scoring flow all working together.
+          Start from Part 1, answer everything in one place, and check the full band estimate at the end.
+        </p>
+        <div class="hero-meta">
+          <span class="hero-pill">4 parts</span>
+          <span class="hero-pill">40 questions</span>
+          <span class="hero-pill">Instant band estimate</span>
+          <span class="hero-pill">Audio synced on page</span>
+        </div>
+        <div class="hero-actions">
+          <button class="action-btn primary" type="button" onclick="goToPart(1)">Start Part 1</button>
+          <button class="action-btn secondary" type="button" onclick="document.getElementById('check-btn').scrollIntoView({ behavior: 'smooth', block: 'center' })">Jump to Results</button>
+        </div>
+      </div>
+      <aside class="overview-card">
+        <div class="overview-title">Session Overview</div>
+        <div class="overview-grid">
+          <div class="overview-item">
+            <div class="overview-value">30</div>
+            <div class="overview-label">Approximate minutes</div>
+          </div>
+          <div class="overview-item">
+            <div class="overview-value">1</div>
+            <div class="overview-label">Audio track on the page</div>
+          </div>
+          <div class="overview-item">
+            <div class="overview-value">10</div>
+            <div class="overview-label">Questions in each part</div>
+          </div>
+          <div class="overview-item">
+            <div class="overview-value">9.0</div>
+            <div class="overview-label">Maximum band shown</div>
+          </div>
+        </div>
+        <div class="overview-note">
+          Results are based only on correct answers. The page has been simplified so the main practice flow stays focused and consistent.
+        </div>
+      </aside>
+    </section>
 
     <div class="flex gap-2 justify-center mb-8 flex-wrap">
-      <button class="tab-btn active" onclick="showPart(1, this)">Part 1</button>
-      <button class="tab-btn" onclick="showPart(2, this)">Part 2</button>
-      <button class="tab-btn" onclick="showPart(3, this)">Part 3</button>
-      <button class="tab-btn" onclick="showPart(4, this)">Part 4</button>
+      <button class="tab-btn active" type="button" onclick="showPart(1, this)">Part 1</button>
+      <button class="tab-btn" type="button" onclick="showPart(2, this)">Part 2</button>
+      <button class="tab-btn" type="button" onclick="showPart(3, this)">Part 3</button>
+      <button class="tab-btn" type="button" onclick="showPart(4, this)">Part 4</button>
     </div>
 
     <!-- ===== PART 1 ===== -->
@@ -1122,8 +1240,6 @@
       if (b >= 4) return "Limited - More practice needed";
       return "Extremely Limited - Strengthen the basics";
     }
-    const QUESTION_POINTS = 1;
-
     function barClass(pct) {
       if (pct >= 80) return 'bar-great';
       if (pct >= 60) return 'bar-good';
@@ -1189,13 +1305,28 @@
     }
     function setVolume(val) { audio.volume = val; }
     function setSpeed(val) { audio.playbackRate = parseFloat(val); }
+
     // ===== TABS =====
+    function setActiveTab(partNumber) {
+      document.querySelectorAll('.tab-btn').forEach((button, index) => {
+        button.classList.toggle('active', index + 1 === partNumber);
+      });
+    }
+
     function showPart(n, btn) {
       document.querySelectorAll('.part-section').forEach(el => el.classList.add('hidden'));
       document.getElementById('part-' + n).classList.remove('hidden');
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      clearHighlightState();
+      if (btn) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      } else {
+        setActiveTab(n);
+      }
+    }
+
+    function goToPart(n) {
+      showPart(n);
+      document.getElementById('part-' + n).scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     // ===== MODAL =====
@@ -1205,219 +1336,6 @@
       if (e.target === document.getElementById('result-modal-overlay')) closeModal();
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-    // ===== HIGHLIGHT =====
-    const toolbar = document.getElementById('hl-toolbar');
-    const colorButtons = document.querySelectorAll('.hl-color-btn');
-    const removeBtn = document.getElementById('remove-hl-btn');
-    const mainContent = document.getElementById('main-content');
-    let pendingHighlight = null;
-    let clickedMark = null;
-
-    // Make ALL text inside part-card selectable (including inside labels)
-    document.querySelectorAll('.part-card, .opt-label, .q-text, .q-label, .part-title').forEach(el => {
-      el.style.userSelect = 'text';
-      el.style.webkitUserSelect = 'text';
-    });
-
-    function clearHighlightState() {
-      pendingHighlight = null;
-      clickedMark = null;
-      toolbar.style.display = 'none';
-      removeBtn.disabled = true;
-    }
-
-    function positionToolbar(x, y) {
-      toolbar.style.left = '-9999px';
-      toolbar.style.top = '-9999px';
-      toolbar.style.display = 'flex';
-
-      requestAnimationFrame(() => {
-        const tw = toolbar.offsetWidth;
-        const th = toolbar.offsetHeight;
-        const minLeft = 8;
-        const maxLeft = window.innerWidth - tw - 8;
-        let left = Math.max(minLeft, Math.min(maxLeft, x - (tw / 2)));
-        let top = y - th - 14;
-
-        if (top < 8) {
-          top = y + 16;
-        }
-
-        toolbar.style.left = left + 'px';
-        toolbar.style.top = top + 'px';
-      });
-    }
-
-    function positionToolbarForRange(range) {
-      if (!range) {
-        clearHighlightState();
-        return;
-      }
-
-      try {
-        const rect = range.getBoundingClientRect();
-        if (!rect || (!rect.width && !rect.height)) {
-          clearHighlightState();
-          return;
-        }
-
-        positionToolbar(rect.left + (rect.width / 2), rect.top);
-      } catch (error) {
-        clearHighlightState();
-      }
-    }
-
-    function positionToolbarForMark(mark) {
-      if (!mark || !document.body.contains(mark)) {
-        clearHighlightState();
-        return;
-      }
-
-      const rect = mark.getBoundingClientRect();
-      if (!rect || (!rect.width && !rect.height)) {
-        clearHighlightState();
-        return;
-      }
-
-      positionToolbar(rect.left + (rect.width / 2), rect.top);
-    }
-
-    // ---- Core: detect selection after mouseup ----
-    function handleSelectionCheck() {
-      const sel = window.getSelection();
-      if (!sel || sel.isCollapsed || !sel.rangeCount) {
-        clearHighlightState();
-        return;
-      }
-
-      const range = sel.getRangeAt(0);
-      const selectedText = sel.toString().trim();
-      if (!selectedText) { clearHighlightState(); return; }
-
-      // Check that selection is within main-content
-      const ancestor = range.commonAncestorContainer;
-      const ancestorEl = ancestor.nodeType === Node.TEXT_NODE ? ancestor.parentElement : ancestor;
-      if (!mainContent.contains(ancestorEl)) { clearHighlightState(); return; }
-
-      // Don't allow selecting inside input/select/textarea
-      if (ancestorEl.closest('input, select, textarea')) { clearHighlightState(); return; }
-
-      // Save the range for later use
-      pendingHighlight = { range: range.cloneRange() };
-      clickedMark = null;
-      removeBtn.disabled = true;
-      positionToolbarForRange(pendingHighlight.range);
-    }
-
-    document.addEventListener('mouseup', function(e) {
-      if (toolbar.contains(e.target)) return;
-
-      const mark = e.target.closest('mark.kh');
-      if (mark) {
-        clickedMark = mark;
-        pendingHighlight = null;
-        window.getSelection().removeAllRanges();
-        removeBtn.disabled = false;
-        toolbar.style.display = 'flex';
-        positionToolbarForMark(mark);
-        return;
-      }
-
-      if (!mainContent.contains(e.target) && !e.target.closest('.opt-label, .q-text, .part-card')) {
-        setTimeout(() => {
-          const sel = window.getSelection();
-          if (!sel || sel.isCollapsed) clearHighlightState();
-        }, 50);
-        return;
-      }
-
-      setTimeout(() => handleSelectionCheck(), 15);
-    });
-
-    function applyHighlight(colorName) {
-      if (!pendingHighlight || !pendingHighlight.range) { clearHighlightState(); return; }
-
-      const savedRange = pendingHighlight.range;
-
-      // Restore selection
-      const sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(savedRange);
-
-      // Try surroundContents first (works for single-element selections)
-      const mark = document.createElement('mark');
-      mark.className = `kh kh-${colorName}`;
-
-      try {
-        // Check if range spans multiple block elements (surroundContents would fail)
-        if (savedRange.startContainer === savedRange.endContainer) {
-          // Same text node — cleanest case
-          const node = savedRange.startContainer;
-          if (node.nodeType === Node.TEXT_NODE) {
-            const start = savedRange.startOffset;
-            const end = savedRange.endOffset;
-            const textContent = node.textContent.slice(start, end);
-            if (textContent.trim()) {
-              node.splitText(end);
-              const mid = node.splitText(start);
-              mark.textContent = mid.textContent;
-              mid.parentNode.replaceChild(mark, mid);
-            }
-          } else {
-            savedRange.surroundContents(mark);
-          }
-        } else {
-          // Multi-node: use surroundContents, fall back to extractContents
-          try {
-            savedRange.surroundContents(mark);
-          } catch(err) {
-            // Extract and wrap
-            const frag = savedRange.extractContents();
-            mark.appendChild(frag);
-            savedRange.insertNode(mark);
-          }
-        }
-      } catch(err) {
-        // Last resort: just insert a mark with the text
-        mark.textContent = savedRange.toString().trim();
-        try { savedRange.deleteContents(); savedRange.insertNode(mark); } catch(e2) {}
-      }
-
-      sel.removeAllRanges();
-      clearHighlightState();
-    }
-
-    colorButtons.forEach(btn => {
-      btn.addEventListener('mousedown', e => e.preventDefault());
-      btn.addEventListener('click', () => applyHighlight(btn.dataset.color));
-    });
-
-    // ---- Remove highlight button ----
-    removeBtn.addEventListener('mousedown', e => e.preventDefault());
-    removeBtn.addEventListener('click', () => {
-      if (!clickedMark) return;
-      const parent = clickedMark.parentNode;
-      if (parent) {
-        while (clickedMark.firstChild) parent.insertBefore(clickedMark.firstChild, clickedMark);
-        parent.removeChild(clickedMark);
-        parent.normalize();
-      }
-      clearHighlightState();
-    });
-
-    window.addEventListener('scroll', () => {
-      if (toolbar.style.display === 'none') return;
-
-      if (clickedMark) {
-        positionToolbarForMark(clickedMark);
-        return;
-      }
-
-      if (pendingHighlight && pendingHighlight.range) {
-        positionToolbarForRange(pendingHighlight.range);
-      }
-    }, { passive: true });
 
     // ===== CHECK ANSWERS =====
     function checkAnswers() {
@@ -1431,11 +1349,6 @@
       document.querySelectorAll('.answer-input').forEach(inp => inp.classList.remove('wrong-ans','right-ans'));
       document.querySelectorAll('.match-select').forEach(s => s.style.borderColor = '');
       document.querySelectorAll('.correct-ans').forEach(el => el.remove());
-      // Reset badges
-      for (let i = 1; i <= 40; i++) {
-        const b = document.getElementById('badge-q' + i);
-        if (b) { b.textContent = QUESTION_POINTS + ' pt'; b.className = 'q-score-badge'; }
-      }
 
       // Text inputs
       document.querySelectorAll('.answer-input').forEach(inp => {
@@ -1443,21 +1356,17 @@
         const qno = parseInt(qid.replace('q',''));
         const part = parseInt(inp.dataset.part);
         const val = inp.value;
-        const badge = document.getElementById('badge-' + qid);
         const correctDisplay = formatAnswerForDisplay(inp.dataset.answer);
 
         if (normalizeAnswer(val) === '') {
-          if (badge) { badge.textContent = '0 pt'; badge.className = 'q-score-badge wrong'; }
           wrongList.push({ qno, your: '', correct: correctDisplay });
           return;
         }
         if (isAnswerCorrect(val, inp.dataset.answer)) {
           inp.classList.add('right-ans');
           totalCorrect++; partCorrect[part]++;
-          if (badge) { badge.textContent = 'Correct ' + QUESTION_POINTS + ' pt'; badge.className = 'q-score-badge correct'; }
         } else {
           inp.classList.add('wrong-ans');
-          if (badge) { badge.textContent = 'Wrong 0 pt'; badge.className = 'q-score-badge wrong'; }
           const span = document.createElement('span');
           span.className = 'correct-ans'; span.textContent = 'Correct: ' + correctDisplay;
           inp.insertAdjacentElement('afterend', span);
@@ -1473,21 +1382,17 @@
         const correctAns = radios[0].dataset.answer;
         const part = parseInt(radios[0].dataset.part);
         const checked = document.querySelector(`input[name="${name}"]:checked`);
-        const badge = document.getElementById('badge-' + name);
 
         if (!checked) {
-          if (badge) { badge.textContent = '0 pt'; badge.className = 'q-score-badge wrong'; }
           wrongList.push({ qno, your: '', correct: correctAns });
           return;
         }
         if (checked.value === correctAns) {
           totalCorrect++; partCorrect[part]++;
           checked.parentElement.style.color = '#34d399';
-          if (badge) { badge.textContent = 'Correct ' + QUESTION_POINTS + ' pt'; badge.className = 'q-score-badge correct'; }
         } else {
           checked.parentElement.style.color = '#f87171';
           radios.forEach(r => { if (r.value === correctAns) r.parentElement.style.color = '#34d399'; });
-          if (badge) { badge.textContent = 'Wrong 0 pt'; badge.className = 'q-score-badge wrong'; }
           wrongList.push({ qno, your: checked.value, correct: correctAns });
         }
       });
@@ -1498,20 +1403,16 @@
         const qno = parseInt(qid.replace('q',''));
         const part = parseInt(sel.dataset.part);
         const ans = sel.dataset.answer;
-        const badge = document.getElementById('badge-' + qid);
 
         if (!sel.value) {
-          if (badge) { badge.textContent = '0 pt'; badge.className = 'q-score-badge wrong'; }
           wrongList.push({ qno, your: '', correct: ans });
           return;
         }
         if (sel.value === ans) {
           sel.style.borderColor = '#34d399';
           totalCorrect++; partCorrect[part]++;
-          if (badge) { badge.textContent = 'Correct ' + QUESTION_POINTS + ' pt'; badge.className = 'q-score-badge correct'; }
         } else {
           sel.style.borderColor = '#f87171';
-          if (badge) { badge.textContent = 'Wrong 0 pt'; badge.className = 'q-score-badge wrong'; }
           const sp = document.createElement('span');
           sp.className = 'correct-ans'; sp.textContent = 'Correct: ' + ans;
           sel.insertAdjacentElement('afterend', sp);
@@ -1536,7 +1437,7 @@
 
       const quickResult = document.getElementById('quick-result');
       quickResult.style.display = 'block';
-      quickResult.textContent = 'Jami ball: ' + totalCorrect + '/40. IELTS band: ' + bandInfo.displayBand.toFixed(1) + '. Foiz: ' + percentage + '%.';
+      quickResult.textContent = 'Total score: ' + totalCorrect + '/40. IELTS band: ' + bandInfo.displayBand.toFixed(1) + '. Percentage: ' + percentage + '%.';
 
       // Part bars
       [1, 2, 3, 4].forEach(p => {
