@@ -783,7 +783,7 @@
       align-items: center;
       justify-content: center;
     }
-
+/* 
     #quick-result {
       display: none;
       max-width: 620px;
@@ -796,7 +796,7 @@
       box-shadow: 0 14px 30px rgba(15,23,42,0.06);
       font-weight: 600;
       line-height: 1.6;
-    }
+    } */
 
     /* Score bar colors by performance */
     .bar-great { background: linear-gradient(90deg, #34d399, #10b981); }
@@ -1363,7 +1363,7 @@
 
     <div class="mt-10 text-center">
       <button id="check-btn" onclick="checkAnswers()">Check Answers</button>
-      <div id="quick-result"></div>
+
     </div>
 
   </div>
@@ -1792,9 +1792,9 @@
       document.getElementById('modal-wrong').textContent = wrong;
       document.getElementById('modal-skipped').textContent = skipped;
 
-      const quickResult = document.getElementById('quick-result');
-      quickResult.style.display = 'block';
-      quickResult.textContent = 'Total score: ' + totalCorrect + '/40. IELTS band: ' + bandInfo.displayBand.toFixed(1) + '. Percentage: ' + percentage + '%.';
+      // const quickResult = document.getElementById('quick-result');
+      // quickResult.style.display = 'block';
+      // quickResult.textContent = 'Total score: ' + totalCorrect + '/40. IELTS band: ' + bandInfo.displayBand.toFixed(1) + '. Percentage: ' + percentage + '%.';
 
       // Part bars
       [1, 2, 3, 4].forEach(p => {
